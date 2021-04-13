@@ -15,7 +15,7 @@ class MainLoad {
 
 	public function new() {
 		document.addEventListener('DOMContentLoaded', (event) -> {
-			trace('load');
+			trace('[monkee] template loading');
 			init();
 		});
 	}
@@ -25,7 +25,7 @@ class MainLoad {
 		for (i in 0...arr.length) {
 			var wrapper:Element = cast arr[i];
 			var url = wrapper.getAttribute(dataAtr);
-			trace(url);
+			trace('templates url: ' + url);
 			loadingArr.push({
 				el: wrapper,
 				url: url,
@@ -38,6 +38,7 @@ class MainLoad {
 		if (nr >= loadingArr.length)
 			return;
 		var obj = loadingArr[nr];
+		trace('start loading: ' + obj.url + ' into: ' + obj.el);
 		loadHTML(obj.url, obj.el);
 		loadingId++;
 	}
@@ -50,6 +51,7 @@ class MainLoad {
 			// trace(body);
 			if (body == "")
 				body = req.response;
+			trace(body);
 
 			// inject code
 			processHTML(body, el);
