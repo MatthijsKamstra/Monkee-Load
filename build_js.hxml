@@ -1,0 +1,7 @@
+-cp src
+-main MainLoad
+-js docs/load.js
+-D es=6
+-D source-map-content
+-debug
+-dce full
