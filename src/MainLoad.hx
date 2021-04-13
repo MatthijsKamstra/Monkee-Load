@@ -9,13 +9,16 @@ class MainLoad {
 	var dataAtr = "data-load";
 	var loadingArr:Array<LoadObj> = [];
 	var loadingId = 0;
+	var time = 0;
+	var timeStart = .0;
+	var timeEnd = .0;
 
 	// modern solution
 	// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 	public function new() {
 		document.addEventListener('DOMContentLoaded', (event) -> {
-			trace('[monkee] template loading');
+			console.log('[🐵] template loading');
 			init();
 		});
 	}
@@ -25,20 +28,26 @@ class MainLoad {
 		for (i in 0...arr.length) {
 			var wrapper:Element = cast arr[i];
 			var url = wrapper.getAttribute(dataAtr);
-			trace('templates url: ' + url);
+			console.log('templates url: ' + url);
 			loadingArr.push({
 				el: wrapper,
 				url: url,
 			});
 		}
+		timeStart = Date.now().getTime();
 		startLoading(loadingId);
+	}
+
+	function getCurrentTime() {
+		timeEnd = Date.now().getTime();
+		console.log((timeEnd - timeStart) + 'ms');
 	}
 
 	function startLoading(nr:Int) {
 		if (nr >= loadingArr.length)
 			return;
 		var obj = loadingArr[nr];
-		trace('start loading: ' + obj.url + ' into: ' + obj.el);
+		console.log('start loading: ' + obj.url + ' into element');
 		loadHTML(obj.url, obj.el);
 		loadingId++;
 	}
@@ -55,6 +64,8 @@ class MainLoad {
 
 			// inject code
 			processHTML(body, el);
+			console.log('- end loading and parsing url: ' + url + ' into element');
+			getCurrentTime();
 			// load the next
 			startLoading(loadingId);
 		};
