@@ -2,6 +2,6 @@
 -main MainLoad
 -js docs/load.js
 -D js-es=6
--D source-map-content
--debug
 -dce full
+# -D source-map-content
+# -debug
