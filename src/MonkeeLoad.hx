@@ -4,7 +4,7 @@ import js.html.Element;
 import js.Browser.*;
 import js.html.XMLHttpRequest;
 
-class MainLoad {
+class MonkeeLoad {
 	var req = new XMLHttpRequest();
 	var dataAtr = "data-load";
 	var loadingArr:Array<LoadObj> = [];
@@ -18,7 +18,7 @@ class MainLoad {
 
 	public function new() {
 		document.addEventListener('DOMContentLoaded', (event) -> {
-			console.log('[🐵] template loading');
+			console.log('🐵 [MonkeeLoad] template loading');
 			init();
 		});
 	}
@@ -111,7 +111,7 @@ class MainLoad {
 	}
 
 	static public function main() {
-		var app = new MainLoad();
+		var app = new MonkeeLoad();
 	}
 }
 
