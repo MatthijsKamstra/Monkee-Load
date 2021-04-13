@@ -51,7 +51,7 @@ class MainLoad {
 			// trace(body);
 			if (body == "")
 				body = req.response;
-			trace(body);
+			// trace(body);
 
 			// inject code
 			processHTML(body, el);

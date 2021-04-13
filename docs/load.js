@@ -42,7 +42,6 @@ class MainLoad {
 			if(body == "") {
 				body = _gthis.req.response;
 			}
-			console.log("src/MainLoad.hx:54:",body);
 			_gthis.processHTML(body,el);
 			_gthis.startLoading(_gthis.loadingId);
 		};
