@@ -1,3 +1,9 @@
+I moved this script into Monkee-Z (zuite 🐵): https://github.com/MatthijsKamstra/monkee-z
+
+Updated code will be done in that repo.
+
+
+
 # 🐵 Monkee Load
 
 simple way to load templates with vanille js.
